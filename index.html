@@ -14,11 +14,16 @@
         <h1>Ejemplo HTML</h1>
     </header>
     <!-- nav>ul>li*3>a[href="#"]{Enlace $} -->
-    <nav>
+    <nav aria-label="Menú principal">
         <ul>
-            <li><a href="#">Enlace 1</a></li>
-            <li><a href="#">Enlace 2</a></li>
-            <li><a href="#">Enlace 3</a></li>
+            <li><a href="#titulos">Títulos</a></li>
+            <li><a href="#parrafos">Párrafos</a></li>
+            <li><a href="#listas">Listas</a></li>
+            <li><a href="#tablas">Tablas</a></li>
+            <li><a href="#multimedia">Multimedia</a></li>
+            <li><a href="#formularios">Formularios</a></li>
+
+            <li><a href="segunda.html">Segunda</a></li>
         </ul>
     </nav>
     <main>
@@ -294,8 +299,19 @@ public class HolaMundo {
             </section>
         </article>
     </main>
+    
+    <aside>
+        <nav aria-label="Anuncios">
+            <ul>
+                <li><a href="https://uniwebsidad.com/libros/xhtml">XHTML</a></li>
+                <li><a href="http://diveintohtml5.info/">HTML5</a></li>
+            </ul>
+        </nav>
+    </aside>
+    
     <footer>
-        &copy;2021 Javier Lete
+        <p>&copy;2021 Javier Lete</p>
+        <a href="#">Arriba</a>
     </footer>
 </body>
 
