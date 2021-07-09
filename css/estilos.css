@@ -176,6 +176,8 @@ dd {
 
 table {
     border: 1px solid var(--color-rayas);
+
+    width: 100%;
 }
 
 table caption {
@@ -205,30 +207,28 @@ th:first-of-type, td:last-of-type {
     text-align: right;
 }
 
-img, iframe, audio, video {
+figure, img, iframe, audio, video {
     width: 100%;
 
-    border: 1px solid var(--color-rayas);
+    /* border: 1px solid var(--color-rayas); */
     border-radius: var(--margen) var(--margen) var(--margen) var(--margen);
 }
 
-img, .aspecto4x3, audio, video {
+figure, .aspecto4x3, audio, video {
     margin: var(--margen) 0;
 }
 
 .aspecto4x3 {
     position:relative;
-	padding-bottom: 75%;
-	/* padding-top:30px;
+	padding-bottom: 75%; /* (3/4) * 100 */
 	height:0;
-	overflow:hidden; */
 }
 
 .aspecto4x3 iframe {
     position:absolute;
-	/* top:0;
+	top:0;
 	left:0;
-	width:100%; */
+	width:100%;
 	height:100%;
 }
 
@@ -257,8 +257,96 @@ input, select, textarea, button {
 aside {
     background-color: var(--color-fondo-1);
 
-    margin: var(--margen);
+    /* margin: var(--margen); */
     padding: var(--margen);
 
     border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+
+    #listas, #tablas, form, figure, .aspecto4x3, audio, video {
+        display: inline-block;
+        width: 49%;
+        vertical-align: top;
+
+        border: 0;
+    }
+
+    .aspecto4x3 {
+        padding-bottom: calc(75% / 2); /* (3/4) * 100 */
+    }
+}
+
+@media (min-width: 1024px) {
+    label {
+        width: 29%;
+        text-align: right;
+        padding-right: var(--margen);
+    }
+
+    input, select, textarea {
+        width: 69%;
+    }
+
+    button, input[type='button'], input[type='reset'], input[type='submit'] {
+        width: auto;
+    }
+
+    h2 {
+        text-align: center;
+
+        text-decoration: none;
+
+        border-bottom: 1px solid var(--color-rayas);
+    }
+
+    #titulos, #parrafos {
+        display: inline-block;
+        vertical-align: top;
+
+        border: 0;
+    }
+
+    #titulos {
+        width: 19%;
+    }
+
+    #parrafos {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1280px) {
+    main, aside {
+        display: inline-block;
+
+        vertical-align: top;
+    }
+
+    main {
+        width: 80%;
+    }
+
+    aside {
+        width: 19%;
+    }
+}
+
+@media (min-width: 1900px) {
+    #titulos, #parrafos, #listas, #tablas {
+        width: 24%;
+    }
+
+    form, figure, .aspecto4x3, audio, video {
+        width: 33%;
+    }
+
+    form, figure, .aspecto4x3  {
+        padding: var(--margen);
+    }
+
+    .aspecto4x3 {
+        padding-bottom: calc(75% / 3); /* (3/4) * 100 */
+    }
 }
