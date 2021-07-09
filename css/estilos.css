@@ -19,6 +19,16 @@ body {
     line-height: 1.5rem;
 }
 
+a {
+    text-decoration: none;
+    color: #4da7d1;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 strong {
     font-weight: bold;
 }
@@ -47,11 +57,14 @@ code {
     font-variant: small-caps;
 }
 
-header {
+body > header {
     font-size: 3rem;
+    line-height: 4rem;
     font-weight: bold;
     text-align: center;
+}
 
+body > header, body > footer {
     background: var(--color-fondo-titulo);
     color: var(--color-texto-titulo);
     /* margin: 1rem 2rem 3rem 4rem;  margin-top: 1rem; margin-right: 2rem; margin-bottom: 3rem; margin-left: 4rem; */
@@ -70,7 +83,7 @@ body > nav li {
     display: inline;
 }
 
-body > nav a {
+body > nav a, footer a {
     display: inline-block;
     padding: var(--margen);
     
@@ -79,13 +92,18 @@ body > nav a {
     text-decoration: none;
 }
 
-body > nav a:hover {
+body > nav a:hover, footer a:hover {
     color: var(--color-fondo-titulo);
     background: var(--color-texto-titulo);
 }
 
 header, body > nav, h2, h3, h4, h5, h6, p {
     margin: var(--margen) 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 h2 {
@@ -122,6 +140,8 @@ pre {
     background: var(--color-fondo-1);
 
     padding: var(--margen);
+
+    overflow: auto;
 }
 
 section {
@@ -187,20 +207,58 @@ th:first-of-type, td:last-of-type {
 
 img, iframe, audio, video {
     width: 100%;
+
+    border: 1px solid var(--color-rayas);
+    border-radius: var(--margen) var(--margen) var(--margen) var(--margen);
+}
+
+img, .aspecto4x3, audio, video {
+    margin: var(--margen) 0;
 }
 
 .aspecto4x3 {
     position:relative;
-	padding-bottom:75%;
-	padding-top:30px;
+	padding-bottom: 75%;
+	/* padding-top:30px;
 	height:0;
-	overflow:hidden;
+	overflow:hidden; */
 }
 
 .aspecto4x3 iframe {
     position:absolute;
-	top:0;
+	/* top:0;
 	left:0;
-	width:100%;
+	width:100%; */
 	height:100%;
+}
+
+legend {
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    padding: var(--margen) 0;
+}
+
+label {
+    display: inline-block;
+    width: 10rem;
+    margin: calc(var(--margen) / 4) 0;
+}
+
+input, select, textarea, button {
+    width: 100%;
+
+    border: 1px solid var(--color-rayas);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+aside {
+    background-color: var(--color-fondo-1);
+
+    margin: var(--margen);
+    padding: var(--margen);
+
+    border-radius: 5px;
 }
