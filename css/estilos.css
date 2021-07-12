@@ -1,3 +1,5 @@
+/* Variables CSS */
+
 :root {
     --color-texto: black;
     --color-fondo-1: rgb(235, 235, 235);
@@ -7,6 +9,8 @@
 
     --margen: 1rem;
 }
+
+/* Generales */
 
 * {
     box-sizing: border-box;
@@ -37,7 +41,8 @@ em {
     font-style: italic;
 }
 
-kbd, code {
+kbd,
+code {
     background: var(--color-fondo-titulo);
     color: var(--color-texto-titulo);
 
@@ -53,9 +58,13 @@ code {
     color: var(--color-texto);
 }
 
+/* Clases */
+
 .destacado {
     font-variant: small-caps;
 }
+
+/* Cabecera y pie */
 
 body > header {
     font-size: 3rem;
@@ -64,7 +73,8 @@ body > header {
     text-align: center;
 }
 
-body > header, body > footer {
+body > header,
+body > footer {
     background: var(--color-fondo-titulo);
     color: var(--color-texto-titulo);
     /* margin: 1rem 2rem 3rem 4rem;  margin-top: 1rem; margin-right: 2rem; margin-bottom: 3rem; margin-left: 4rem; */
@@ -75,33 +85,72 @@ body > header, body > footer {
     padding: var(--margen);
 }
 
+/* Menú */
+
 body > nav {
     background: var(--color-fondo-titulo);
+
+    padding: calc(var(--margen) / 4);
+}
+
+body > nav ul {
+    display: flex;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    align-items: center;
 }
 
 body > nav li {
     display: inline;
+
+    width: 100%;
+    /* flex-grow: 1; */
 }
 
-body > nav a, footer a {
+body > nav li:last-of-type {
+    margin-left: auto;
+}
+
+body > nav a,
+footer a {
     display: inline-block;
+
+    width: 100%;
+
+    text-align: center;
+
     padding: var(--margen);
-    
+
     color: var(--color-texto-titulo);
 
     text-decoration: none;
 }
 
-body > nav a:hover, footer a:hover {
+body > nav a:hover,
+footer a:hover {
     color: var(--color-fondo-titulo);
     background: var(--color-texto-titulo);
 }
 
-header, body > nav, h2, h3, h4, h5, h6, p {
+header,
+body > nav,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     margin: var(--margen) 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: bold;
     text-decoration: underline;
 }
@@ -189,12 +238,15 @@ th {
     font-weight: bold;
 }
 
-table caption, th, td {
+table caption,
+th,
+td {
     border: 1px solid var(--color-rayas);
     padding: calc(var(--margen) / 2);
 }
 
-thead, tfoot {
+thead,
+tfoot {
     background: var(--color-fondo-titulo);
     color: var(--color-texto-titulo);
 }
@@ -203,33 +255,41 @@ tr:nth-child(even) {
     background: var(--color-fondo-1);
 }
 
-th:first-of-type, td:last-of-type {
+th:first-of-type,
+td:last-of-type {
     text-align: right;
 }
 
-figure, img, iframe, audio, video {
+figure,
+img,
+iframe,
+audio,
+video {
     width: 100%;
 
     /* border: 1px solid var(--color-rayas); */
     border-radius: var(--margen) var(--margen) var(--margen) var(--margen);
 }
 
-figure, .aspecto4x3, audio, video {
+figure,
+.aspecto4x3,
+audio,
+video {
     margin: var(--margen) 0;
 }
 
 .aspecto4x3 {
-    position:relative;
-	padding-bottom: 75%; /* (3/4) * 100 */
-	height:0;
+    position: relative;
+    padding-bottom: 75%; /* (3/4) * 100 */
+    height: 0;
 }
 
 .aspecto4x3 iframe {
-    position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 legend {
@@ -245,7 +305,10 @@ label {
     margin: calc(var(--margen) / 4) 0;
 }
 
-input, select, textarea, button {
+input,
+select,
+textarea,
+button {
     width: 100%;
 
     border: 1px solid var(--color-rayas);
@@ -263,15 +326,110 @@ aside {
     border-radius: 5px;
 }
 
-@media (min-width: 768px) {
+#html h2 {
+    grid-area: titulo;
+}
 
-    #listas, #tablas, form, figure, .aspecto4x3, audio, video {
+#titulos {
+    grid-area: titulos;
+}
+
+#parrafos {
+    grid-area: parrafos;
+}
+
+#listas {
+    grid-area: listas;
+}
+
+#tablas {
+    grid-area: tablas;
+}
+
+#multimedia {
+    grid-area: multimedia;
+}
+
+#formularios {
+    grid-area: formularios;
+}
+
+#html {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "titulo"
+        "titulos"
+        "parrafos"
+        "listas"
+        "tablas"
+        "multimedia"
+        "formularios";
+}
+
+@media (min-width: 768px) {
+    body > nav ul {
+        flex-direction: row;
+    }
+
+    body > nav li {
+        width: auto;
+    }
+
+    #html {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "titulo titulo"
+            "titulos titulos"
+            "parrafos parrafos"
+            "listas tablas"
+            "multimedia multimedia"
+            "formularios formularios";
+    }
+
+    #multimedia,
+    #formularios {
+        display: flex;
+        /* flex-direction: row; */
+        flex-wrap: wrap;
+    }
+
+    #multimedia {
+        align-items: center;
+    }
+
+    #formularios {
+        align-items: flex-start;
+    }
+
+    #formularios > :nth-child(3) {
+        order: 3;
+
+        flex-grow: 2;
+
+        display: flex;
+    }
+
+    h3 {
+        width: 100%;
+    }
+
+    #formularios > :nth-child(3) > *,
+    #multimedia > *:not(h3),
+    #formularios > *:not(h3) {
+        width: calc(50% - 2 * var(--margen));
+        margin: var(--margen);
+    }
+
+    /* #listas, #tablas, form, figure, .aspecto4x3, audio, video {
         display: inline-block;
         width: 49%;
         vertical-align: top;
 
         border: 0;
-    }
+    } */
 
     .aspecto4x3 {
         padding-bottom: calc(75% / 2); /* (3/4) * 100 */
@@ -279,7 +437,23 @@ aside {
 }
 
 @media (min-width: 1024px) {
-    label {
+    form div {
+        display: flex;
+    }
+
+    form div > label {
+        width: 30%;
+        text-align: right;
+        padding-right: var(--margen);
+    }
+
+    form div > input,
+    form div > select,
+    form div > textarea {
+        width: 70%;
+    }
+
+    /* label {
         width: 29%;
         text-align: right;
         padding-right: var(--margen);
@@ -287,9 +461,12 @@ aside {
 
     input, select, textarea {
         width: 69%;
-    }
+    } */
 
-    button, input[type='button'], input[type='reset'], input[type='submit'] {
+    button,
+    input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
         width: auto;
     }
 
@@ -301,7 +478,7 @@ aside {
         border-bottom: 1px solid var(--color-rayas);
     }
 
-    #titulos, #parrafos {
+    /* #titulos, #parrafos {
         display: inline-block;
         vertical-align: top;
 
@@ -314,11 +491,58 @@ aside {
 
     #parrafos {
         width: 80%;
+    } */
+
+    #html {
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas:
+            "titulo titulo"
+            "titulos parrafos"
+            "listas tablas"
+            "multimedia multimedia"
+            "formularios formularios";
     }
 }
 
 @media (min-width: 1280px) {
-    main, aside {
+    body > header {
+        grid-area: cabecera;
+    }
+
+    body > nav {
+        grid-area: menu;
+    }
+
+    body > main {
+        grid-area: principal;
+    }
+
+    body > aside {
+        grid-area: anuncios;
+    }
+
+    body > footer {
+        grid-area: pie;
+    }
+
+    body {
+        display: grid;
+        /* grid-template-rows: auto; */
+        grid-template-columns: 1fr auto;
+
+        column-gap: var(--margen);
+        row-gap: var(--margen);
+
+        grid-template-areas:
+            "cabecera cabecera"
+            "menu menu"
+            "principal anuncios"
+            "pie pie";
+    }
+
+    /*
+    main,
+    aside {
         display: inline-block;
 
         vertical-align: top;
@@ -331,18 +555,37 @@ aside {
     aside {
         width: 19%;
     }
+    */
 }
 
 @media (min-width: 1900px) {
-    #titulos, #parrafos, #listas, #tablas {
+    #html {
+        grid-template-columns: 1fr 2fr 1fr 2fr;
+        grid-template-areas:
+            "titulo titulo titulo titulo"
+            "titulos parrafos listas tablas"
+            "multimedia multimedia multimedia multimedia"
+            "formularios formularios formularios formularios";
+        column-gap: var(--margen);
+    }
+
+    /*
+    #titulos,
+    #parrafos,
+    #listas,
+    #tablas {
         width: 24%;
     }
+*/
 
-    form, figure, .aspecto4x3, audio, video {
-        width: 33%;
+    #multimedia > *:not(h3) {
+        width: calc(33.3333% - 2 * var(--margen));
+        margin: var(--margen);
     }
 
-    form, figure, .aspecto4x3  {
+    form,
+    figure,
+    .aspecto4x3 {
         padding: var(--margen);
     }
 
