@@ -88,6 +88,11 @@ body > footer {
 /* Menú */
 
 body > nav {
+    position: sticky;
+    top: 0;
+
+    z-index: 10000;
+
     background: var(--color-fondo-titulo);
 
     padding: calc(var(--margen) / 4);
@@ -367,6 +372,24 @@ aside {
         "tablas"
         "multimedia"
         "formularios";
+}
+
+#arriba {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+    background: var(--color-fondo-titulo);
+    color: var(--color-texto-titulo);
+}
+
+#arriba:hover {
+    background: var(--color-texto-titulo);
+    color: var(--color-fondo-titulo);
+}
+
+body {
+    padding-bottom: 3em;
 }
 
 @media (min-width: 768px) {
