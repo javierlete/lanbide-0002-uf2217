@@ -1,0 +1,273 @@
+:root {
+    --color-texto1: #35360B;
+    --color-texto2: #E4E682;
+    --color-fondo-seleccionado: #AEAE2D;
+    --color-fondo: #7C7C1D;
+
+    --color-fondo-cuadro: #f6f7d5a6;
+
+    --margen1: 0.5rem;
+    --margen2: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--color-texto1);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-texto1);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body > header {
+    height: 104px;
+
+    background-image: url(../imgs/fondo_encabezado.png);
+    background-repeat: repeat-x;
+    background-position: right;
+}
+
+#pre-cabecera {
+    height: 104px;
+    background-image: url(../imgs/fondo_encabezado.png), url(../imgs/boton_todos_proyectos.gif);
+    background-repeat: repeat-x, no-repeat;
+    background-size: auto, 1px 60%;
+    background-position-x: right, right;
+}
+
+#post-cabecera {
+    border-left: 1px solid var(--color-texto1);
+    height: 60%;
+}
+
+h1 {
+    display: none;
+}
+
+#menu-idiomas {
+    text-align: right;
+    margin-top: 0.6rem;
+    margin-right: 1rem;
+}
+
+#menu-idiomas li {
+    display: inline-block;
+}
+
+#menu-idiomas a {
+    padding: var(--margen1);
+    background-color: var(--color-fondo-seleccionado);
+
+    text-transform: uppercase;
+}
+
+#menu-principal ul {
+    display: flex;
+}
+
+#menu-principal ul, #pre-menu-principal, #post-menu-principal {
+    background-color: var(--color-fondo);
+    border: 4px solid var(--color-fondo);
+}
+
+#menu-principal a {
+    display: inline-block;
+    padding: var(--margen2);
+
+    color: var(--color-texto2);
+    text-transform: uppercase;
+}
+
+#menu-principal a:hover {
+    background-color: var(--color-fondo-seleccionado);
+    text-decoration: none;
+}
+
+#menu-principal li:last-of-type {
+    margin-left: auto;
+}
+
+#carrusel {
+    position: relative;
+}
+
+#carrusel img {
+    display: block;
+}
+
+#carrusel blockquote {
+    font-size: 18px;
+
+    background-color: var(--color-fondo-cuadro);
+    padding: var(--margen2);
+
+    width: 462px;
+    height: 95px;
+
+    position: absolute;
+
+    right: 4rem;
+    top: 8rem; 
+}
+
+#carrusel footer {
+    background-color: var(--color-fondo-seleccionado);
+    padding-left: 21px;
+}
+
+#carrusel footer li {
+    display: inline-block;
+}
+
+#carrusel footer a {
+    display: inline-block;
+    padding: 3px;
+
+    color: var(--color-texto2);
+}
+
+#carrusel footer a:hover {
+    color: var(--color-texto1);
+
+    text-decoration: none;
+}
+
+#texto-principal {
+    padding: 3rem 1rem 5rem;
+}
+
+#texto-principal p {
+    font-size: 18px;
+    line-height: 2rem;
+}
+
+body > footer {
+    display: flex;
+    border-top: 2rem solid var(--color-fondo);
+    background-color: var(--color-fondo-seleccionado);
+
+    padding: 1rem 3rem 0;
+}
+
+body > footer #enlaces li {
+    display: inline-block;
+}
+
+body > footer #enlaces nav:first-of-type {
+    text-transform: uppercase;
+}
+
+body > footer #enlaces, body > footer #direcciones {
+    flex-grow: 1;
+
+    line-height: 1.75rem;
+}
+
+body > footer img {
+    position: relative;
+
+    top: -3rem;
+}
+
+body > footer #direcciones {
+    padding-left: 2rem;
+}
+
+body {
+    display: grid;
+
+    grid-template-columns: 1fr 960px 4rem; 
+
+    grid-template-areas:
+        "pre-cabecera cabecera post-cabecera"
+        "pre-menu menu post-menu"
+        "anuncios contenido ."
+        "pie pie pie"
+}
+
+body > header {
+    grid-area: cabecera;
+}
+#pre-cabecera {
+    grid-area: pre-cabecera;
+}
+#post-cabecera {
+    grid-area: post-cabecera;
+}
+
+#menu-principal {
+    grid-area: menu;
+}
+
+#pre-menu-principal {
+    grid-area: pre-menu;
+}
+
+#post-menu-principal {
+    grid-area: post-menu;
+}
+
+#menu-idiomas {
+    grid-area: cabecera;
+}
+
+main {
+    grid-area: contenido;
+}
+
+aside {
+    grid-area: anuncios;
+}
+
+body > footer {
+    grid-area: pie;
+}
+
+@media (max-width: 980px) {
+    body {
+        grid-template-columns: 0 1fr 0; 
+    }
+
+    #pre-menu-principal, #post-menu-principal, aside, #pre-cabecera, #post-cabecera {
+        display: none;
+    }
+
+    main img {
+        width: 100%;
+    }
+
+    #carrusel {
+        position: static;
+    }
+
+    #carrusel blockquote {
+        position: static;
+        width: 100%;
+        height: auto;
+        top: 0;
+        right: 0;
+        padding: 1em;
+    }
+
+    body > footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    body > footer img {
+        top: 0;
+    }
+    
+    body > footer #direcciones {
+        padding-left: 0;
+    }
+}
