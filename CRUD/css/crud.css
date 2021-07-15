@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+
+    padding: 1rem;
+}
+
+/* Comunes */
+
+caption, legend {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Tabla */
+
+table {
+    width: 100%;
+}
+
+thead, tfoot {
+    background-color: black;
+    color: white;
+
+    font-size: 1.25rem;
+    line-height: 3rem;
+}
+
+thead i, tfoot i {
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(219, 219, 219);
+}
+
+th {
+    font-weight: bold;
+}
+
+th, td {
+    border: 1px solid lightgray;
+
+    padding: 0.5rem;
+
+    vertical-align: middle;
+}
+
+i {
+    font-size: 0;
+    color: black;
+}
+
+i::before {
+    font-size: 3rem;
+}
+
+/* Formulario */
+
+form div {
+    display: flex;
+}
+
+label {
+    width: 5rem;
+
+    font-weight: bold;
+}
+
+input {
+    flex-grow: 1;
+}
+
+input, label, button {
+    padding: 0.5rem;
+
+    margin-bottom: 0.5rem;
+}
+
+button {
+    margin-left: 5rem;
+
+    font-weight: bold;
+}
