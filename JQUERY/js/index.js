@@ -1,41 +1,24 @@
-window.addEventListener('DOMContentLoaded', function () {
-    //window.onload = function () {
+$(function () {
     console.log('Cargado documento');
 
-    const h1s = document.getElementsByTagName('h1');
+    console.log($('h1'));
 
-    console.log(h1s);
+    $('h1:first-of-type').html('Prueba');
 
-    h1s[0].innerHTML = 'Prueba';
+    console.log($('h1')[1].innerHTML, $('h1:last-of-type').html());
 
-    console.log(h1s[1].innerHTML);
-
-    const formularioPruebas = document.getElementById('formulario-pruebas');
-
-    console.log(formularioPruebas);
-
-    formularioPruebas.addEventListener('submit', function(e) {
+    $('#formulario-pruebas').on('submit', function(e) {
         e.preventDefault();
-        
-        const nombre = document.getElementById('nombre');
-        console.log(nombre);
 
-        let mensaje = document.getElementById('mensaje');
-
-        if(!mensaje) {
-            mensaje = document.createElement('span');
-            mensaje.id = 'mensaje';
+        if(!$('#mensaje').length) {
+            $('<span id="mensaje"></span>').insertAfter('#formulario-pruebas button');
         }
-
-        document.querySelector('#formulario-pruebas button').after(mensaje);
 
         if(!nombre.value) {
-            mensaje.innerHTML = 'No me puedes dejar el nombre vacío';
+            $('#mensaje').html('No me puedes dejar el nombre vacío');
         } else {
-            mensaje.innerHTML = 'Hola ' + nombre.value;
+            $('#mensaje').html('Hola ' + $('#nombre').val());
         }
-
-        // return false;
     });
 });
 
@@ -167,6 +150,10 @@ function sintaxis() {
     for (let elemento of arr) {
         console.log(elemento);
     }
+
+    $(arr).each(function() {
+        console.log(this.toString());
+    });
 
     for (let clave in arr) {
         console.log(clave, arr[clave]);
